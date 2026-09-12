@@ -1,1 +1,1 @@
-**Uygun Kampüs** eğitim serisini izleyerek, eşzamanlı olarak uygulayarak ve standart projenin üzerine kendi modifikasyonlarımı katarak geliştirdiğim Unity projem. Öğrenme sürecimi ve projeye eklediğim kişisel dokunuşları bu repoda bulabilirsiniz.
+A Unity project I am developing by watching the **Uygun Kampüs** tutorial series, applying the concepts in real-time, and adding my own modifications to the standard project. You can explore my learning process and the personal touches I've added to the mechanics in this repository.
