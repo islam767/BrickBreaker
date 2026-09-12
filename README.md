@@ -1,0 +1,1 @@
+**Uygun Kampüs** eğitim serisini izleyerek, eşzamanlı olarak uygulayarak ve standart projenin üzerine kendi modifikasyonlarımı katarak geliştirdiğim Unity projem. Öğrenme sürecimi ve projeye eklediğim kişisel dokunuşları bu repoda bulabilirsiniz.
