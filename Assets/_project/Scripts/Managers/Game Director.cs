@@ -6,7 +6,7 @@ public class GameDirector : MonoBehaviour
     public LevelManagers levelManagers;
     public BreakManagers breakManagers;
     public Player player;
-    internal object lose;
+    public object lose;
     public UIManager uiManager;
 
     private void Update()
@@ -26,25 +26,23 @@ public class GameDirector : MonoBehaviour
     }
     private void Start()
     {
-        uiManager.GameStarted();
-        
+        uiManager.GameStarted(); 
     }
     public void loadNextLevel()
     {
-        levelManagers.currentLevelNo = Mathf.Max(levelManagers.currentLevelNo- 1,1);
+        levelManagers.currentLevelNo += 1; 
         RestartLevel(); 
     }
 
     private void LoadPreviousLevel()
     {
-        levelManagers.currentLevelNo += 1;
+        levelManagers.currentLevelNo = Mathf.Max(levelManagers.currentLevelNo - 1, 0);
         RestartLevel();
     }
 
 
    public void RestartLevel()
     {
-       
         // bolum olsutur
         // dusmanlari olustur
         // oyuncuyu resetle
@@ -58,8 +56,6 @@ public class GameDirector : MonoBehaviour
         levelManagers.SetBallDirektion(Vector3.zero);
         levelManagers.HideBall();
         uiManager.LevelCompleted();
-
-
     }
 
     public void Lose()

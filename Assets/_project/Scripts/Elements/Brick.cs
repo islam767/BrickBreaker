@@ -32,7 +32,7 @@ public class Brick : MonoBehaviour
     private void PlayVVisualFX()
     {
         //spriteR.transform.DOKill();
-        // spriteR.transform.localScale = .2f*Vector3.one; bunlar tuglalarin hizli carpmasini scelini degismesini onluyor ama ise yaramiyor
+        // spriteR.transform.localScale = .2f*Vector3.one; //bunlar tuglalarin hizli carpmasini scelini degismesini onluyor ama ise yaramiyor
         // spriteR.transform.localScale = Vector3.zero;
         spriteR.transform.DOScale(.90f, .10f).SetLoops(2, LoopType.Yoyo);
         spriteR.DOColor(new Color(1, 1 - _health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1), .1f);

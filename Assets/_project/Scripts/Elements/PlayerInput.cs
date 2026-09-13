@@ -32,7 +32,7 @@ public class PlayerInput : MonoBehaviour
     {
         var mousePosX = Input.mousePosition.x;
         var mousePosNormalized = mousePosX - Screen.width/2;
-        print(mousePosNormalized);
+        //print(mousePosNormalized);
         mousePosNormalized = mousePosNormalized * 4 /Screen.width;
        _player.MovePlayer(mousePosNormalized);
 
