@@ -1,4 +1,5 @@
 
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEditor.ShortcutManagement;
@@ -65,5 +66,11 @@ public class LevelManagers : MonoBehaviour
     public void SetBallDirektion(Vector3 zero)
     {
         _currentBall.SetBalldirektion (Vector3.zero);
+    }
+
+    public  void HideBall()
+    {
+        _currentBall.transform.DOScale(0, .2f).SetEase(Ease.InBack);
+       
     }
 }

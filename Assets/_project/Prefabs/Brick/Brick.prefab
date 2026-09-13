@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea41569af0fd9644d90660f415c7af8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Brick
+  _level: {fileID: -8934482622273518143, guid: db16dcf72e3b13c47b64d8f5ad26ba5a, type: 3}
   startHealth: 3
   spriteR: {fileID: 2411349380637697410}
   colorChangeSpeed: 0.3

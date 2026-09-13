@@ -7,6 +7,7 @@ public class GameDirector : MonoBehaviour
     public BreakManagers breakManagers;
     public Player player;
     internal object lose;
+    public UIManager uiManager;
 
     private void Update()
     {
@@ -16,14 +17,19 @@ public class GameDirector : MonoBehaviour
         }
       if (Input.GetKeyDown(KeyCode.E))
         {
-            loadNextLEvel();
+            loadNextLevel();
         }
       if (Input.GetKeyDown(KeyCode.Q))
         {
             LoadPreviousLevel();
         }
     }
-    private void loadNextLEvel()
+    private void Start()
+    {
+        uiManager.GameStarted();
+        
+    }
+    public void loadNextLevel()
     {
         levelManagers.currentLevelNo = Mathf.Max(levelManagers.currentLevelNo- 1,1);
         RestartLevel(); 
@@ -49,11 +55,14 @@ public class GameDirector : MonoBehaviour
 
     public void Win()
     {
-        Invoke(nameof(loadNextLEvel), 1f);
-          
+        levelManagers.SetBallDirektion(Vector3.zero);
+        levelManagers.HideBall();
+        uiManager.LevelCompleted();
+
+
     }
 
-    public  void Lose()
+    public void Lose()
     {
         levelManagers.SetBallDirektion(Vector3.zero);
         Invoke(nameof(RestartLevel), 1f);
