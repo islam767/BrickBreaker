@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameDirector : MonoBehaviour
 {
     public LevelManagers levelManagers;
-    public BreakManagers breakManagers;
+   // public BreakManagers breakManagers;
     public Player player;
     public object lose;
     public UIManager uiManager;
@@ -47,8 +47,9 @@ public class GameDirector : MonoBehaviour
         // dusmanlari olustur
         // oyuncuyu resetle
         levelManagers.RestartLevelManager();
-        breakManagers.RestartBreakManager();
+       // breakManagers.RestartBreakManager();
         player.RestartPlayer();
+        uiManager.ShowInGameUI(levelManagers.currentLevelNo);
     }
 
     public void Win()
@@ -61,6 +62,8 @@ public class GameDirector : MonoBehaviour
     public void Lose()
     {
         levelManagers.SetBallDirektion(Vector3.zero);
-        Invoke(nameof(RestartLevel), 1f);
+        levelManagers.HideBall();
+        uiManager.LevelFailed();
+
     }
 }
