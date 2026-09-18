@@ -36,7 +36,7 @@ public class GameDirector : MonoBehaviour
 
     private void LoadPreviousLevel()
     {
-        levelManagers.currentLevelNo = Mathf.Max(levelManagers.currentLevelNo - 1, 0);
+        levelManagers.currentLevelNo = Mathf.Max(levelManagers.currentLevelNo - 1, 1);
         RestartLevel();
     }
 
