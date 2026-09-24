@@ -4,10 +4,12 @@ using UnityEngine;
 public class GameDirector : MonoBehaviour
 {
     public LevelManagers levelManagers;
-   // public BreakManagers breakManagers;
+    public FXMAnager fxManager;
+    // public BreakManagers breakManagers;
     public Player player;
     public object lose;
     public UIManager uiManager;
+
 
     private void Update()
     {
