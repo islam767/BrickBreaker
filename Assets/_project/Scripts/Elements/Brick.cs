@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
+    private AudioManager _audioManager; 
     public Level _level;
     public int startHealth;
    private int _health;
@@ -12,12 +13,12 @@ public class Brick : MonoBehaviour
     public SpriteRenderer spriteR;
     public float colorChangeSpeed ;
    
-    public  void StartBrick(Level level)
+    public  void StartBrick(Level level,LevelManagers levelManager)
     {
-        _level = level;  
+        _level = level;
+        _audioManager = levelManager.gameDirector.audioManager;
         _health = startHealth;
-        spriteR.color = new Color(1, 1-_health* colorChangeSpeed, 1 - _health * colorChangeSpeed, 1);
-        
+        spriteR.color = new Color(1, 1-_health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1);
     }
     public void GetHit()
     {
@@ -43,6 +44,7 @@ public class Brick : MonoBehaviour
     {
        gameObject.SetActive(false);
         _level.BrickDestroy(this);
+        _audioManager.PlayExploadSound();
     }
     private void OnDestroy()
     {

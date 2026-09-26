@@ -5,6 +5,7 @@ public class GameDirector : MonoBehaviour
 {
     public LevelManagers levelManagers;
     public FXMAnager fxManager;
+    public AudioManager audioManager;
     // public BreakManagers breakManagers;
     public Player player;
     public object lose;
@@ -63,6 +64,7 @@ public class GameDirector : MonoBehaviour
 
     public void Lose()
     {
+        audioManager.PlayFallSound();
         levelManagers.SetBallDirektion(Vector3.zero);
         levelManagers.HideBall();
         uiManager.LevelFailed();

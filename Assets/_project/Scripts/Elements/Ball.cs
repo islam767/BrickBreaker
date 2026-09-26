@@ -4,6 +4,7 @@ public class Ball : MonoBehaviour
 {
     public  LevelManagers _levelManagers;
     public  FXMAnager _fxManager;
+    private AudioManager _audioManager;
     public float speed;
 
   private Vector3 _direction;
@@ -12,6 +13,7 @@ public class Ball : MonoBehaviour
     {
         _levelManagers = levelManager;
         _fxManager= _levelManagers.gameDirector.fxManager;
+        _audioManager= _levelManagers.gameDirector.audioManager;
         _direction = dir;
     }
     public void SetBalldirektion(Vector3 dir)
@@ -32,6 +34,7 @@ public class Ball : MonoBehaviour
         {
             Bounce(collision.contacts[0].normal, collision.contacts[0].point);
             collision.gameObject.GetComponent<Brick>().GetHit();
+            _audioManager.PlayPositiveSound();
         }
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -42,5 +45,6 @@ public class Ball : MonoBehaviour
     {
          _direction = Vector3.Reflect(_direction, n);
         _fxManager.playeballImpactPS(contactPos, n);
+        _audioManager.PlayImpactSound();
     }
 }
