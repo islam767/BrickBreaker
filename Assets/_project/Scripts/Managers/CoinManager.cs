@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CoinManager : MonoBehaviour
 {
+    public CoinUI coinUI;
     public int coinCount;
     public Coin coinPrefeb;
     private Coroutine coinSpawnCoroutine;
@@ -43,6 +44,7 @@ public class CoinManager : MonoBehaviour
     public void CoinCollected()
     {
       coinCount++;
+      coinUI.updateCoinCount(coinCount);
     }
 
 
