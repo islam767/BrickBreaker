@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public  LevelManagers _levelManagers;
-    public  FXMAnager _fxManager;
+    private  LevelManagers _levelManagers;
+    private  FXMAnager _fxManager;
     private AudioManager _audioManager;
     public float speed;
 

@@ -5,6 +5,7 @@ public class GameDirector : MonoBehaviour
 {
     public LevelManagers levelManagers;
     public FXMAnager fxManager;
+    public CoinManager coinManager;
     public AudioManager audioManager;
     // public BreakManagers breakManagers;
     public Player player;
@@ -53,6 +54,7 @@ public class GameDirector : MonoBehaviour
        // breakManagers.RestartBreakManager();
         player.RestartPlayer();
         uiManager.ShowInGameUI(levelManagers.currentLevelNo);
+        coinManager.StartCoinSpawnerC();
     }
 
     public void Win()
@@ -60,6 +62,7 @@ public class GameDirector : MonoBehaviour
         levelManagers.SetBallDirektion(Vector3.zero);
         levelManagers.HideBall();
         uiManager.LevelCompleted();
+        coinManager.StopCoinSpawnC();
     }
 
     public void Lose()
@@ -68,6 +71,6 @@ public class GameDirector : MonoBehaviour
         levelManagers.SetBallDirektion(Vector3.zero);
         levelManagers.HideBall();
         uiManager.LevelFailed();
-
+        coinManager.StopCoinSpawnC();
     }
 }

@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2096675336360026020}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed74bf5bc3f14f43bbd9cedf5b79843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ball
+  _levelManagers: {fileID: 0}
+  _fxManager: {fileID: 0}
   speed: 7
 --- !u!58 &7597333162704129628
 CircleCollider2D:

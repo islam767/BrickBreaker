@@ -1,17 +1,15 @@
 using UnityEngine;
 
-public class LoseTrigger : MonoBehaviour
+public class CoinCollection : MonoBehaviour
 {
-    public GameDirector gameDirector;
+    public Player player;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("ball"))
-        {
-            gameDirector.Lose();
-        }
         if (collision.gameObject.CompareTag("Coin"))
         {
+            player.CoinCollected();
             Destroy(collision.gameObject);
         }
     }
+
 }
