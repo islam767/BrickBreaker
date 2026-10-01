@@ -4,6 +4,7 @@ public class FXMAnager : MonoBehaviour
 {
     public ParticleSystem winFX;
     public ParticleSystem BallPS;
+    public ParticleSystem goldCollectPS;
     public void PlayBDP(Vector3 pos)
     {
         var newPS = Instantiate(winFX);
@@ -17,5 +18,10 @@ public class FXMAnager : MonoBehaviour
         newPS.transform.LookAt(pos + dir);
         newPS.Play();
     }
-
+     public void CoinGoldPS(Vector3 pos)
+    {
+        var newPS = Instantiate(goldCollectPS);
+        newPS.transform.position = pos;
+        newPS.Play();
+    }
 }

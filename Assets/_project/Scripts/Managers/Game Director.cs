@@ -30,8 +30,17 @@ public class GameDirector : MonoBehaviour
     }
     private void Start()
     {
-        uiManager.GameStarted(); 
+        uiManager.GameStarted();
+        LoadPersistanceData();
     }
+
+    private void LoadPersistanceData()
+    {
+        var levelNo = Math.Max(PlayerPrefs.GetInt("levelNo"),1);
+        levelManagers.currentLevelNo = levelNo;
+        coinManager.coinCount =PlayerPrefs.GetInt("coincount");
+    }
+
     public void loadNextLevel()
     {
         levelManagers.currentLevelNo += 1; 
@@ -59,6 +68,7 @@ public class GameDirector : MonoBehaviour
 
     public void Win()
     {
+        PlayerPrefs.SetInt("levelNo",levelManagers.currentLevelNo+1);
         levelManagers.SetBallDirektion(Vector3.zero);
         levelManagers.HideBall();
         uiManager.LevelCompleted();

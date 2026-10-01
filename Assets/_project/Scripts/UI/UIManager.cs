@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     {
         levelUI.Show(LevelNo);
         coinUI.Show();
-        coinUI.updateCoinCount(0);
+        coinUI.updateCoinCount(gameDirector.coinManager.coinCount);
     }
     public void HideInGameUI()
     {

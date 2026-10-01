@@ -14,17 +14,8 @@ public class Player : MonoBehaviour
         transform.position= new Vector3(xPos, transform.position.y, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+  public void CoinCollected(Vector3 pos)
     {
-        if (collision.gameObject.CompareTag("ball"))
-        {
-            collision.gameObject.SetActive(false);
-        }
-      
-    }
-
-  public void CoinCollected()
-    {
-        coinManager.CoinCollected();
+        coinManager.CoinCollected(pos);
     }
 }

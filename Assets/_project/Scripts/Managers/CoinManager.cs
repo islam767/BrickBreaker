@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CoinManager : MonoBehaviour
 {
+    public FXMAnager fxmanager;
     public CoinUI coinUI;
     public int coinCount;
     public Coin coinPrefeb;
@@ -41,10 +42,12 @@ public class CoinManager : MonoBehaviour
         newCoin.transform.DOScale(1f,.2f).SetEase(Ease.OutBack);
     }
 
-    public void CoinCollected()
+    public void CoinCollected(Vector3 pos)
     {
       coinCount++;
       coinUI.updateCoinCount(coinCount);
+      PlayerPrefs.SetInt("coincount",coinCount);
+        fxmanager.CoinGoldPS(pos);
     }
 
 

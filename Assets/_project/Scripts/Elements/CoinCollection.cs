@@ -7,7 +7,7 @@ public class CoinCollection : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
-            player.CoinCollected();
+            player.CoinCollected(collision.gameObject.transform.position);
             Destroy(collision.gameObject);
         }
     }
