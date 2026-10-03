@@ -56,6 +56,7 @@ public class GameDirector : MonoBehaviour
 
    public void RestartLevel()
     {
+        coinManager.StopCoinSpawnC();
         // bolum olsutur
         // dusmanlari olustur
         // oyuncuyu resetle

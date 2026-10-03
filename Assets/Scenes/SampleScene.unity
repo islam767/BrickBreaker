@@ -3450,9 +3450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelManagers
   gameDirector: {fileID: 1845471}
   levels:
-  - {fileID: -8934482622273518143, guid: db16dcf72e3b13c47b64d8f5ad26ba5a, type: 3}
-  - {fileID: -5207356298589760887, guid: a0c8fdf810fa15b46ad857f3d9b674d4, type: 3}
-  - {fileID: -596516003371240851, guid: b562daa604e15cd4cb20530ab17171fe, type: 3}
+  - {fileID: -596516003371240851, guid: 4b38c7806be73c046b97038192fefc8c, type: 3}
   ballPrefab: {fileID: 3386553763097461652, guid: 46d92f05c0e4a9f4491abc6ef19766a8, type: 3}
   currentLevelNo: 0
 --- !u!4 &1524709106
