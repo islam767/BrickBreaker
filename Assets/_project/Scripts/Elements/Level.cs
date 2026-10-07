@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Level : MonoBehaviour
 {
@@ -14,16 +15,26 @@ public class Level : MonoBehaviour
         _levelManagers = levelManager;
         _fxManager=_levelManagers.gameDirector.fxManager;
         //  _bricks = GetComponentsInChildren<Brick>().ToList(); belki bool ile degistire bilirizz
-        GenerationBrick();
+        var state = Random.state;
+        Random.InitState(_levelManagers.currentLevelNo);
+        var brickCount = System.Math.Min(_levelManagers.currentLevelNo+1,8);
+
+        GenerationBrick(brickCount);
+
+        Random.state = state;
     }
 
-    private void GenerationBrick()
+    private void GenerationBrick(int brickCount)
     {
-        var newBricks = Instantiate(brickPrefab,transform);
-        var xPosRandom=Random.Range(-1f,2);
-        newBricks.transform.localPosition = new Vector3 (xPosRandom*1.5f,0,0);
-        _bricks.Add(newBricks);
-        newBricks.StartBrick(this,_levelManagers);
+        for (int i = 0; i <brickCount; i++)
+        {
+            var newBricks = Instantiate(brickPrefab, transform);
+            var xPosRandom = Random.Range(-1f, 2);
+            newBricks.transform.localPosition = new Vector3(xPosRandom * 1.1f, i*.6f, 0);
+            _bricks.Add(newBricks);
+            newBricks.StartBrick(this, _levelManagers);
+        }
+       
     }
 
     public void BrickDestroy(Brick brick)
