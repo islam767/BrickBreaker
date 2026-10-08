@@ -15,11 +15,24 @@ public class Brick : MonoBehaviour
    
     public  void StartBrick(Level level,LevelManagers levelManager)
     {
-        _level = level;
+        var bonushealth = 0;
+        if (levelManager.currentLevelNo > 20 && levelManager.currentLevelNo < 31)
+        {
+            startHealth += 1;
+        }
+        else if (levelManager.currentLevelNo > 30)
+
+        {
+            startHealth += 2;
+        }
+
+
+            _level = level;
         _audioManager = levelManager.gameDirector.audioManager;
+        startHealth += bonushealth;
         _health = startHealth;
         spriteR.color = new Color(1, 1-_health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1);
-    }
+        }
     public void GetHit()
     {
         _health--;
