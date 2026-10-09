@@ -8,6 +8,7 @@ public class GameDirector : MonoBehaviour
     public CoinManager coinManager;
     public AudioManager audioManager;
     // public BreakManagers breakManagers;
+    public IncrementalManager incrementalManager;
     public Player player;
     public object lose;
     public UIManager uiManager;
@@ -30,8 +31,8 @@ public class GameDirector : MonoBehaviour
     }
     private void Start()
     {
-        uiManager.GameStarted();
         LoadPersistanceData();
+        uiManager.GameStarted();
     }
 
     private void LoadPersistanceData()
@@ -39,6 +40,7 @@ public class GameDirector : MonoBehaviour
         var levelNo = Math.Max(PlayerPrefs.GetInt("levelNo"),1);
         levelManagers.currentLevelNo = levelNo;
         coinManager.coinCount =PlayerPrefs.GetInt("coincount");
+        incrementalManager.LoadPersistanceData();
     }
 
     public void loadNextLevel()

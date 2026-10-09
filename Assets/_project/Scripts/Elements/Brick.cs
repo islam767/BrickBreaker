@@ -6,6 +6,8 @@ public class Brick : MonoBehaviour
 {
     private AudioManager _audioManager; 
     public Level _level;
+    private IncrementalManager   _incrementalManager;
+
     public int startHealth;
    private int _health;
     private Color _color;
@@ -29,15 +31,17 @@ public class Brick : MonoBehaviour
 
             _level = level;
         _audioManager = levelManager.gameDirector.audioManager;
+        _incrementalManager= levelManager.gameDirector.incrementalManager;
         startHealth += bonushealth;
         _health = startHealth;
         spriteR.color = new Color(1, 1-_health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1);
         }
     public void GetHit()
     {
-        _health--;
+        var totalDamage=1+ _incrementalManager.GetDamageUpgradeCount();
+        _health-=totalDamage;
         PlayVVisualFX();
-        if (_health == 0)
+        if (_health <=0)
         {
             DEstroyBrick();
         }

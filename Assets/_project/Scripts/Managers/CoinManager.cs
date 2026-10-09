@@ -11,6 +11,25 @@ public class CoinManager : MonoBehaviour
     public int coinCount;
     public Coin coinPrefeb;
     private Coroutine coinSpawnCoroutine;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                CoinCollected(Vector3.zero);
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                SpendCoins(10);
+            }
+        }
+
+    }
     public void StartCoinSpawnerC()
     {
        coinSpawnCoroutine= StartCoroutine(coinSpawnC());
@@ -49,6 +68,14 @@ public class CoinManager : MonoBehaviour
       PlayerPrefs.SetInt("coincount",coinCount);
         fxmanager.CoinGoldPS(pos);
     }
+
+    public void SpendCoins(int spendAmount)
+    {
+       coinCount -= spendAmount;
+        coinUI.updateCoinCount(coinCount);
+        PlayerPrefs.SetInt("coincount",coinCount);
+    }
+   
 
 
 
