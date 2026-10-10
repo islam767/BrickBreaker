@@ -27,16 +27,15 @@ public class UIManager : MonoBehaviour
         coinUI.updateCoinCount(gameDirector.coinManager.coinCount);
         incremantaiUi.Hide();
     }
+
     public void HideInGameUI()
     {
         levelUI.Hide();
     }
 
-
     public void PlayGameButtonPressed()
     {
         gameDirector.RestartLevel();
-
     }
 
     public void LevelCompleted()

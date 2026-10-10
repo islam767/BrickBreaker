@@ -9,10 +9,10 @@ public class IncreamantaiUi : MonoBehaviour
     public CoinManager  coinManager;
 
     public Button upgradeDamageButton;
-
-    private CanvasGroup canvasG;
     public TextMeshProUGUI damageCostTMP;
     public TextMeshProUGUI curLevelTMP;
+
+    private CanvasGroup canvasG;
     private void Awake()
     {
         canvasG = GetComponent<CanvasGroup>();
