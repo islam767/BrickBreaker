@@ -8,18 +8,17 @@ public class IncrementalManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            if (GetDamageUpgradeCost() <= coinManager.coinCount )
-            {
-                coinManager.SpendCoins(GetDamageUpgradeCost());
-                UpgradeDamage();
-            }
-        }
         if(Input.GetKeyDown(KeyCode.Y))
         {
             ResetDamageUpgrade();
         }
+    }
+    public void DamageUpgradeButtonPressed()
+    {
+        coinManager.SpendCoins(GetDamageUpgradeCost());
+        UpgradeDamage();
+       
+        
     }
     public int GetDamageUpgradeCost()
     {

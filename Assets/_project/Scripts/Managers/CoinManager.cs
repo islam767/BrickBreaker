@@ -23,7 +23,7 @@ public class CoinManager : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.O))
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 5; i++)
             {
                 SpendCoins(10);
             }
