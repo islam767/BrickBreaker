@@ -45,7 +45,7 @@ public class IncreamantaiUi : MonoBehaviour
             upgradeDamageButton.interactable = false;
         }
         damageCostTMP.text = cost.ToString();
-        curLevelTMP.text = "Level " + incrementalManager.GetDamageUpgradeCount().ToString();
+        curLevelTMP.text = "Attact Level " + incrementalManager.GetDamageUpgradeCount().ToString();
         //damageCostTMP.text = cost.ToString();
         //curLevelTMP.text = "LEVEL "+incrementalManager.GetDamageUpgradeCount().ToString();
     }

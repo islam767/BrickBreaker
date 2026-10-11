@@ -92,14 +92,18 @@ public class Level : MonoBehaviour
     {
         _bricks.Remove(brick);
         _fxManager.PlayBDP(brick.transform.position);
-        if (Random.value < 0.5f)
-        {
-            _levelManagers.gameDirector.coinManager.CreatCoinAtPositon(brick.transform.position);
-        }
+      
         _levelManagers.gameDirector.coinManager.CreatCoinAtPositon(brick.transform.position);
         if (_bricks.Count == 0)
         {
             _levelManagers.LevelCleard();
+        }
+        else
+        {
+            if (Random.value < 0.5f)
+            {
+                _levelManagers.gameDirector.coinManager.CreatCoinAtPositon(brick.transform.position);
+            }
         }
     }
 }
