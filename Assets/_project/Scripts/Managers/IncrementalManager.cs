@@ -22,7 +22,7 @@ public class IncrementalManager : MonoBehaviour
     }
     public int GetDamageUpgradeCost()
     {
-        return 100 + _damageUpgradeCount * 100;
+        return 500 + _damageUpgradeCount * 100;
     }
     private void ResetDamageUpgrade()
     {
