@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2382717407291054159}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 45, z: 0}
+  m_LocalPosition: {x: -0.176, y: 45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c8db8495865f24aab46b4147ea3fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level
+  brickPrefab: {fileID: 0}
+  tilePrefeb: {fileID: 0}
 --- !u!1001 &1133595698685118299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +69,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.007059753
       objectReference: {fileID: 0}
+    - target: {fileID: 3769231910444656261, guid: 669341e6efc434d4a9f8a49bc2b9392d, type: 3}
+      propertyPath: _level
+      value: 
+      objectReference: {fileID: -8934482622273518143}
     - target: {fileID: 7253853929440889240, guid: 669341e6efc434d4a9f8a49bc2b9392d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -145,6 +151,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.1310283
       objectReference: {fileID: 0}
+    - target: {fileID: 3769231910444656261, guid: 669341e6efc434d4a9f8a49bc2b9392d, type: 3}
+      propertyPath: _level
+      value: 
+      objectReference: {fileID: -8934482622273518143}
     - target: {fileID: 7253853929440889240, guid: 669341e6efc434d4a9f8a49bc2b9392d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -186,6 +196,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7361825599121646169, guid: 669341e6efc434d4a9f8a49bc2b9392d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361825599121646169, guid: 669341e6efc434d4a9f8a49bc2b9392d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -223,6 +237,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.13102913
       objectReference: {fileID: 0}
+    - target: {fileID: 3769231910444656261, guid: 669341e6efc434d4a9f8a49bc2b9392d, type: 3}
+      propertyPath: _level
+      value: 
+      objectReference: {fileID: -8934482622273518143}
     - target: {fileID: 7253853929440889240, guid: 669341e6efc434d4a9f8a49bc2b9392d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5

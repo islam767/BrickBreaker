@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using TMPro;
 using UnityEngine;
 
 public class Brick : MonoBehaviour
@@ -14,6 +15,8 @@ public class Brick : MonoBehaviour
 
     public SpriteRenderer spriteR;
     public float colorChangeSpeed ;
+    public TextMeshPro healthTMP;
+
    
     public  void StartBrick(Level level,LevelManagers levelManager)
     {
@@ -27,15 +30,17 @@ public class Brick : MonoBehaviour
         {
             startHealth += 2;
         }
+      
 
 
-            _level = level;
+        _level = level;
         _audioManager = levelManager.gameDirector.audioManager;
         _incrementalManager= levelManager.gameDirector.incrementalManager;
         startHealth += bonushealth;
         _health = startHealth;
-        spriteR.color = new Color(1, 1-_health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1);
-        }
+        healthTMP.text = _health.ToString();
+        //spriteR.color = new Color(1, 1-_health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1);
+    }
     public void GetHit()
     {
         var totalDamage=1+ _incrementalManager.GetDamageUpgradeCount();
@@ -45,6 +50,10 @@ public class Brick : MonoBehaviour
         {
             DEstroyBrick();
         }
+        else
+        {
+            healthTMP.text = _health.ToString();
+        }
     }
 
     private void PlayVVisualFX()
@@ -53,8 +62,9 @@ public class Brick : MonoBehaviour
         // spriteR.transform.localScale = .2f*Vector3.one; //bunlar tuglalarin hizli carpmasini scelini degismesini onluyor ama ise yaramiyor
         // spriteR.transform.localScale = Vector3.zero;
         spriteR.transform.DOScale(.90f, .10f).SetLoops(2, LoopType.Yoyo);
-        spriteR.DOColor(new Color(1, 1 - _health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1), .1f);
+      //  spriteR.DOColor(new Color(1, 1 - _health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1), .1f);
         spriteR.transform.DOPunchPosition(Vector3.one*.5f,.5f,10);
+        
     }
 
     private void DEstroyBrick()

@@ -48,13 +48,13 @@ public class Ball : MonoBehaviour
     void Bounce(Vector3 n, Vector3 contactPos)
     {
          _direction = Vector3.Reflect(_direction, n);
-        if (_direction.y < .1f && _direction.y>0)
+        if (_direction.y < .15f && _direction.y>0)
         {
-            _direction.y = .1f;
+            _direction.y = .15f;
         }
-        else if (_direction.y >.1f&& _direction.y<0)
+        else if (_direction.y >.15f&& _direction.y<0)
         {
-            _direction.y = -.1f;
+            _direction.y = -.15f;
         }
         _fxManager.playeballImpactPS(contactPos, n);
         _audioManager.PlayImpactSound();

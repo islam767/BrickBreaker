@@ -49,17 +49,17 @@ public class Level : MonoBehaviour
         }
        */
        
-        var xstep = 1.5f;
-        var ystep = 0.5f;
-        var startY = 1.5f; // Bu değeri artırarak grubu yukarı, azaltarak aşağı kaydırabilirsiniz
+        var xstep = 1f;
+        var ystep = 1f;
+        var startY = 2f; // Bu değeri artırarak grubu yukarı, azaltarak aşağı kaydırabilirsiniz
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 5; i++)
         {
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 5; j++)
             {
                 var newtile = Instantiate(tilePrefeb, transform);
                 // i * ystep değerine startY eklendi
-                newtile.transform.localPosition = new Vector3(-1.5f + xstep * j, startY + (i * ystep), 0);
+                newtile.transform.localPosition = new Vector3(-2f + xstep * j, startY + (i * ystep), 0);
                 _availabelTiles.Add(newtile);
             }
         }
