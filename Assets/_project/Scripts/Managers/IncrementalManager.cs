@@ -11,6 +11,7 @@ public class IncrementalManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Y))
         {
             ResetDamageUpgrade();
+            coinManager.ResetCoinCount();
         }
     }
     public void DamageUpgradeButtonPressed()

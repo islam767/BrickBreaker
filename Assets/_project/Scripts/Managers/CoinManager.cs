@@ -1,5 +1,7 @@
 using DG.Tweening;
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,23 +14,20 @@ public class CoinManager : MonoBehaviour
     public Coin coinPrefeb;
     private Coroutine coinSpawnCoroutine;
 
+    private List<Coin> activeCoins = new List<Coin>();
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.M))
         {
-            for (int i = 0; i < 100; i++)
+          for(int i = 0; i < 100; i++)
             {
-                CoinCollected(Vector3.zero);
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                SpendCoins(10);
-            }
-        }
+               coinCount++;
+                coinUI.updateCoinCount(coinCount);
+                PlayerPrefs.SetInt("coincount",coinCount);
 
+            }
+        }
     }
     public void StartCoinSpawnerC()
     {
@@ -59,14 +58,16 @@ public class CoinManager : MonoBehaviour
         newCoin.transform.position = pos;
         newCoin.transform.localScale = Vector3.zero;
         newCoin.transform.DOScale(1f,.2f).SetEase(Ease.OutBack);
+        activeCoins.Add(newCoin);
     }
 
-    public void CoinCollected(Vector3 pos)
+    public void CoinCollected(Coin coin)
     {
       coinCount++;
       coinUI.updateCoinCount(coinCount);
       PlayerPrefs.SetInt("coincount",coinCount);
-        fxmanager.CoinGoldPS(pos);
+        fxmanager.CoinGoldPS(coin.transform.position);
+        activeCoins.Remove(coin);
     }
 
     public void SpendCoins(int spendAmount)
@@ -75,7 +76,25 @@ public class CoinManager : MonoBehaviour
         coinUI.updateCoinCount(coinCount);
         PlayerPrefs.SetInt("coincount",coinCount);
     }
-   
+    public void DEstroyActiveCoins()
+    {
+        foreach (var coin in activeCoins)
+        {
+            Destroy(coin.gameObject);
+        }
+        activeCoins.Clear();
+    }
+
+    internal void CoinDestroyed(Coin coin)
+    {
+      activeCoins.Remove(coin);
+    }
+
+    public void ResetCoinCount()
+    {
+        coinCount = 0;
+    }
+
 
 
 

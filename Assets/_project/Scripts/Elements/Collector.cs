@@ -7,12 +7,12 @@ public class Collector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
-            player.CoinCollected(collision.gameObject.transform.position);
+            player.CoinCollected(collision.gameObject.GetComponent<Coin>());
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Powerup"))
         {
-            player.PowerUpCollected(collision.transform.position);
+            player.PowerUpCollected(collision.gameObject.GetComponent<PowerUp>());
             Destroy(collision.gameObject);
         }
     }

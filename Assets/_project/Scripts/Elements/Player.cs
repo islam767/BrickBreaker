@@ -15,13 +15,13 @@ public class Player : MonoBehaviour
         transform.position= new Vector3(xPos, transform.position.y, 0);
     }
 
-  public void CoinCollected(Vector3 pos)
+  public void CoinCollected(Coin coin)
     {
-        coinManager.CoinCollected(pos);
+        coinManager.CoinCollected(coin);
     }
 
-    public void PowerUpCollected(Vector3 position)
+    public void PowerUpCollected(PowerUp powerUp)
     {
-        powerUpManager.PowerUpCollected(position);
+        powerUpManager.PowerUpCollected(powerUp);
     }
 }

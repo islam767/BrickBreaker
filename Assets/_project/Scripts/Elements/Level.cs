@@ -100,11 +100,12 @@ public class Level : MonoBehaviour
         }
         else
         {
-            if (Random.value < 0.5f)
+            var randomValue = Random.value;
+            if (randomValue < 0.5f)
             {
                 _levelManagers.gameDirector.coinManager.CreatCoinAtPositon(brick.transform.position);
             }
-            else
+            else if (randomValue < .6f)
             {
                 _levelManagers.gameDirector.powerUpManager.SpawnPowerUP(brick.transform.position);
             }

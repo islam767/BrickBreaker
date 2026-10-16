@@ -21,17 +21,15 @@ public class LevelManagers : MonoBehaviour
         DeletePreveiosLevel();
         CreateNevLevel();
         DeletePreveiosballs();
-        CreateNewBall();
+        CreateNewBall(new Vector3 (0,-3,0));
     }
 
-    private void CreateNewBall()
+    private void CreateNewBall(Vector3 pos)
     {
-
         var newBal = Instantiate(ballPrefab);
-        newBal.transform.position = new Vector3 (0,-3f,0);
+        newBal.transform.position = pos;
         newBal.StartBall(this,new Vector3 (Random.Range(-1f,1f),1,0));
         _activeballs.Add(newBal);
-
     }
 
     private void DeletePreveiosballs()
@@ -52,7 +50,7 @@ public class LevelManagers : MonoBehaviour
 
     }
 
-    private void DeletePreveiosLevel()
+    public void DeletePreveiosLevel()
     {
          if (_currentLevel != null)
         {
@@ -78,18 +76,18 @@ public class LevelManagers : MonoBehaviour
      
     }
 
-    public  void HideBall()
+    public  void HideBalls()
     {
         foreach (var b in _activeballs)
         {
-        b.transform.DOScale(0, .2f).SetEase(Ease.InBack);
+        b.transform.DOScale(0, .2f).SetEase(Ease.InBack).OnComplete(()=>Destroy(b.gameObject));
         }
-       
+       _activeballs.Clear();
     }
 
-    public void PowerUpCollected()
+    public void PowerUpCollected(Vector3 pos)
     {
-        CreateNewBall();
+        CreateNewBall(pos);
     }
 
     public void BallDestroyed(Ball ball)

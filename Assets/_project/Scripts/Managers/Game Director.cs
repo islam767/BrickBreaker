@@ -74,17 +74,22 @@ public class GameDirector : MonoBehaviour
     {
         PlayerPrefs.SetInt("levelNo",levelManagers.currentLevelNo+1);
         levelManagers.SetBallsDirektion(Vector3.zero);
-        levelManagers.HideBall();
+        levelManagers.HideBalls();
         uiManager.LevelCompleted();
         coinManager.StopCoinSpawnC();
+        coinManager.DEstroyActiveCoins();
+        powerUpManager.DEstroyActivePowerUps();
+
     }
 
     public void Lose()
     {
         audioManager.PlayFallSound();
         levelManagers.SetBallsDirektion(Vector3.zero);
-        levelManagers.HideBall();
+        levelManagers.HideBalls();
         uiManager.LevelFailed();
         coinManager.StopCoinSpawnC();
+        coinManager.DEstroyActiveCoins();
+        powerUpManager.DEstroyActivePowerUps();
     }
 }
