@@ -155,6 +155,7 @@ MonoBehaviour:
   incrementalManager: {fileID: 985392703}
   player: {fileID: 667873293}
   uiManager: {fileID: 1884909120}
+  powerUpManager: {fileID: 2075006586}
 --- !u!4 &1845472
 Transform:
   m_ObjectHideFlags: 0
@@ -174,6 +175,7 @@ Transform:
   - {fileID: 1703238125}
   - {fileID: 1173836658}
   - {fileID: 985392704}
+  - {fileID: 2075006585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5765935
@@ -2082,6 +2084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   coinManager: {fileID: 1173836659}
+  powerUpManager: {fileID: 2075006586}
 --- !u!4 &667873294
 Transform:
   m_ObjectHideFlags: 0
@@ -5684,6 +5687,53 @@ Transform:
   - {fileID: 963444372}
   m_Father: {fileID: 893349007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2075006584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2075006585}
+  - component: {fileID: 2075006586}
+  m_Layer: 0
+  m_Name: PowerUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2075006585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075006584}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845472}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2075006586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075006584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c504f2575c647884b80092a32d888f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUp
+  fxMAnager: {fileID: 1740257773}
+  levelManagers: {fileID: 1524709105}
+  powerUps: {fileID: -2827574864547754232, guid: 3fa7b0686039de549b5beb28c5c5b66d, type: 3}
 --- !u!1 &746122367210467752
 GameObject:
   m_ObjectHideFlags: 0

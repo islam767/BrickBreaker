@@ -4,7 +4,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public CoinManager coinManager;
-  public void RestartPlayer()
+    public PowerUpManager powerUpManager;
+    public void RestartPlayer()
     {
         transform.position = new Vector3(0, transform.position.y, 0);
     }
@@ -17,5 +18,10 @@ public class Player : MonoBehaviour
   public void CoinCollected(Vector3 pos)
     {
         coinManager.CoinCollected(pos);
+    }
+
+    public void PowerUpCollected(Vector3 position)
+    {
+        powerUpManager.PowerUpCollected(position);
     }
 }

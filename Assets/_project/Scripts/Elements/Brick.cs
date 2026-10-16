@@ -31,13 +31,11 @@ public class Brick : MonoBehaviour
         {
             startHealth += 2;
         }
-      
-
 
         _level = level;
         _audioManager = levelManager.gameDirector.audioManager;
         _incrementalManager= levelManager.gameDirector.incrementalManager;
-        startHealth += bonushealth;
+        //startHealth += bonushealth;
         _health = startHealth;
         healthTMP.text = _health.ToString();
         //spriteR.color = new Color(1, 1-_health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1);
@@ -59,13 +57,13 @@ public class Brick : MonoBehaviour
 
     private void PlayVVisualFX()
     {
-        //spriteR.transform.DOKill();
+        spriteR.transform.DOKill(true);
         // spriteR.transform.localScale = .2f*Vector3.one; //bunlar tuglalarin hizli carpmasini scelini degismesini onluyor ama ise yaramiyor
         // spriteR.transform.localScale = Vector3.zero;
-        spriteR.transform.DOScale(.90f, .10f).SetLoops(2, LoopType.Yoyo);
+        spriteR.transform.DOScale(1f, .50f).SetLoops(2, LoopType.Yoyo);
       //  spriteR.DOColor(new Color(1, 1 - _health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1), .1f);
         spriteR.transform.DOPunchPosition(Vector3.one*.5f,.5f,10);
-        healthTMP.DOKill();
+        healthTMP.DOKill(true);
         healthTMP.color= Color.white;
         healthTMP.DOColor(Color.red, .1f).SetLoops(2, LoopType.Yoyo);
 

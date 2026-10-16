@@ -14,30 +14,33 @@ public class LevelManagers : MonoBehaviour
     public int currentLevelNo;
    
     private Level _currentLevel;
-    private Ball _currentBall;
+   // private Ball _currentBall;
+    private List<Ball> _activeballs = new List<Ball>();
     public  void RestartLevelManager()
     {
         DeletePreveiosLevel();
         CreateNevLevel();
-        DeletePreveiosball();
+        DeletePreveiosballs();
         CreateNewBall();
     }
 
     private void CreateNewBall()
     {
 
-       _currentBall = Instantiate(ballPrefab);
-        _currentBall.transform.position = new Vector3 (0,-3f,0);
-        _currentBall.StartBall(this,new Vector3 (Random.Range(-1f,1f),1,0));   
+        var newBal = Instantiate(ballPrefab);
+        newBal.transform.position = new Vector3 (0,-3f,0);
+        newBal.StartBall(this,new Vector3 (Random.Range(-1f,1f),1,0));
+        _activeballs.Add(newBal);
 
     }
 
-    private void DeletePreveiosball()
+    private void DeletePreveiosballs()
     {
-      if (_currentBall != null)
+     foreach (var b in _activeballs)
         {
-            Destroy(_currentBall.gameObject);
+            Destroy(b.gameObject);
         }
+        _activeballs.Clear();
     }
 
     private void CreateNevLevel()
@@ -59,18 +62,42 @@ public class LevelManagers : MonoBehaviour
 
     public void LevelCleard()
     {
-        _currentBall.SetBalldirektion(Vector3.zero);
+        foreach (var b in _activeballs)
+        {
+           b.SetBalldirektion(Vector3.zero);
+        }
         gameDirector.Win();
     }
 
-    public void SetBallDirektion(Vector3 zero)
+    public void SetBallsDirektion(Vector3 zerp)
     {
-        _currentBall.SetBalldirektion (Vector3.zero);
+         foreach (var b in _activeballs)
+        {
+           b.SetBalldirektion(Vector3.zero);
+        }
+     
     }
 
     public  void HideBall()
     {
-        _currentBall.transform.DOScale(0, .2f).SetEase(Ease.InBack);
+        foreach (var b in _activeballs)
+        {
+        b.transform.DOScale(0, .2f).SetEase(Ease.InBack);
+        }
        
+    }
+
+    public void PowerUpCollected()
+    {
+        CreateNewBall();
+    }
+
+    public void BallDestroyed(Ball ball)
+    {
+        _activeballs.Remove(ball);
+        if (_activeballs.Count <= 0)
+        {
+            gameDirector.Lose();
+        }
     }
 }

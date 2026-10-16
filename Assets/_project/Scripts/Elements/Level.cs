@@ -104,6 +104,10 @@ public class Level : MonoBehaviour
             {
                 _levelManagers.gameDirector.coinManager.CreatCoinAtPositon(brick.transform.position);
             }
+            else
+            {
+                _levelManagers.gameDirector.powerUpManager.SpawnPowerUP(brick.transform.position);
+            }
         }
     }
 }

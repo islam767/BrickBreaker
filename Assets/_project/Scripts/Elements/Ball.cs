@@ -8,7 +8,7 @@ public class Ball : MonoBehaviour
     public float speed;
 
   private Vector3 _direction;
-
+   
     public  void StartBall (LevelManagers levelManager, Vector3 dir)
     {
         _levelManagers = levelManager;
@@ -26,6 +26,7 @@ public class Ball : MonoBehaviour
     }
     private void FixedUpdate()
     {
+       // rb2d.linearVelocity= _direction.normalized * speed;
         transform.position+= _direction.normalized * speed * Time.fixedDeltaTime;
     }
     private void OnCollisionEnter2D(Collision2D collision)
