@@ -11,12 +11,15 @@ public class FXMAnager : MonoBehaviour
         newPS.transform.position = pos;
         newPS.Play();
     }
-    public void playeballImpactPS(Vector3 pos,Vector3 dir)
+    public void playeballImpactPS(Vector3 pos,Vector3 dir,Color color)
     {
         var newPS = Instantiate(BallPS);
         newPS.transform.position = pos;
         newPS.transform.LookAt(pos + dir);
+        var main = newPS.main;
+        main.startColor = color;
         newPS.Play();
+        
     }
      public void CoinGoldPS(Vector3 pos)
     {

@@ -32,20 +32,20 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("wall"))
         {
-            Bounce(collision.contacts[0].normal, collision.contacts[0].point);
+            Bounce(collision.contacts[0].normal, collision.contacts[0].point, Color.white);
         }
         if (collision.gameObject.CompareTag("Brick"))
         {
-            Bounce(collision.contacts[0].normal, collision.contacts[0].point);
+            Bounce(collision.contacts[0].normal, collision.contacts[0].point, Color.yellow);
             collision.gameObject.GetComponent<Brick>().GetHit();
             _audioManager.PlayPositiveSound();
         }
         if (collision.gameObject.CompareTag("Player"))
         {
-            Bounce(collision.contacts[0].normal, collision.contacts[0].point);
+            Bounce(collision.contacts[0].normal, collision.contacts[0].point, Color.violetRed);
         }
     }
-    void Bounce(Vector3 n, Vector3 contactPos)
+    void Bounce(Vector3 n, Vector3 contactPos ,Color color)
     {
          _direction = Vector3.Reflect(_direction, n);
         if (_direction.y < .15f && _direction.y>0)
@@ -56,7 +56,7 @@ public class Ball : MonoBehaviour
         {
             _direction.y = -.15f;
         }
-        _fxManager.playeballImpactPS(contactPos, n);
+        _fxManager.playeballImpactPS(contactPos, n,color);
         _audioManager.PlayImpactSound();
     }
 }

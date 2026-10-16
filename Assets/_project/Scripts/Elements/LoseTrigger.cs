@@ -7,6 +7,7 @@ public class LoseTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ball"))
         {
+            gameDirector.fxManager.playeballImpactPS(collision.transform.position, Vector3.up,Color.red);
             gameDirector.Lose();
         }
         if (collision.gameObject.CompareTag("Coin"))

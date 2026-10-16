@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -20,7 +19,9 @@ public class Brick : MonoBehaviour
    
     public  void StartBrick(Level level,LevelManagers levelManager)
     {
-        var bonushealth = 0;
+        startHealth = Random.Range(2, 6);
+        var bonushealth = levelManager.currentLevelNo / 5;
+        startHealth+= bonushealth;
         if (levelManager.currentLevelNo > 20 && levelManager.currentLevelNo < 31)
         {
             startHealth += 1;
@@ -64,7 +65,10 @@ public class Brick : MonoBehaviour
         spriteR.transform.DOScale(.90f, .10f).SetLoops(2, LoopType.Yoyo);
       //  spriteR.DOColor(new Color(1, 1 - _health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1), .1f);
         spriteR.transform.DOPunchPosition(Vector3.one*.5f,.5f,10);
-        
+        healthTMP.DOKill();
+        healthTMP.color= Color.white;
+        healthTMP.DOColor(Color.red, .1f).SetLoops(2, LoopType.Yoyo);
+
     }
 
     private void DEstroyBrick()
