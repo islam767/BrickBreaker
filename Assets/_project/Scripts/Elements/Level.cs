@@ -6,13 +6,16 @@ using UnityEngine.Tilemaps;
 
 public class Level : MonoBehaviour
 {
-    public Brick brickPrefab;
+    public Brick basicBrickPrefab;
+    public Brick indestructableBrickPrefab;
+    public Brick ToughBrickPrefab;
     private List<Brick> _bricks=new List<Brick>();  
     private FXMAnager _fxManager;
     private LevelManagers _levelManagers;
-
     public Tile tilePrefeb;
     private List<Tile> _availabelTiles = new List<Tile>();
+
+
     public void StartLevel(LevelManagers levelManager)
     {
         _levelManagers = levelManager;
@@ -72,11 +75,25 @@ public class Level : MonoBehaviour
         Random.InitState(_levelManagers.currentLevelNo);
         for (int i = 0; i <brickCount; i++)
         {
-            var newBricks = Instantiate(brickPrefab, transform);
-            var xPosRandom = Random.Range(-1f, 2);
+            var brickPrefab = basicBrickPrefab;
+            var randomValue = Random.value;
 
+            if (i>0 && randomValue < .15f)
+            {
+                brickPrefab = indestructableBrickPrefab;
+            }
+            else if ( i > 0 && randomValue < .25f)
+            {
+                brickPrefab = ToughBrickPrefab;   
+            }
+            var newBricks = Instantiate(brickPrefab, transform);
+           // var newBricks = Instantiate(basicBrickPrefab, transform);
+            var xPosRandom = Random.Range(-1f, 2);
             newBricks.transform.localPosition = selectFromavailabletiles();
-            _bricks.Add(newBricks);
+            if (brickPrefab!= indestructableBrickPrefab)
+            {
+                _bricks.Add(newBricks);
+            }
             newBricks.StartBrick(this, _levelManagers);
         }
         Random.state = state;
@@ -110,5 +127,9 @@ public class Level : MonoBehaviour
                 _levelManagers.gameDirector.powerUpManager.SpawnPowerUP(brick.transform.position);
             }
         }
+    }
+    public void ToughBrickHit(Vector3 pos)
+    {
+        _levelManagers.gameDirector.powerUpManager.SpawnPowerUP(pos);
     }
 }

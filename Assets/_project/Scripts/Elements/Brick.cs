@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
+
     private AudioManager _audioManager; 
-    public Level _level;
+    private Level _level;
     private IncrementalManager   _incrementalManager;
 
-    public int startHealth;
+    public Vector2 starthealthRange;
+    private int _startHealth;
    private int _health;
     private Color _color;
 
@@ -16,35 +18,52 @@ public class Brick : MonoBehaviour
     public float colorChangeSpeed ;
     public TextMeshPro healthTMP;
 
-   
+    public BrickType brickType;
+
     public  void StartBrick(Level level,LevelManagers levelManager)
     {
-        startHealth = Random.Range(2, 6);
-        var bonushealth = levelManager.currentLevelNo / 5;
-        startHealth+= bonushealth;
-        if (levelManager.currentLevelNo > 20 && levelManager.currentLevelNo < 31)
-        {
-            startHealth += 1;
-        }
-        else if (levelManager.currentLevelNo > 30)
-
-        {
-            startHealth += 2;
-        }
 
         _level = level;
         _audioManager = levelManager.gameDirector.audioManager;
         _incrementalManager= levelManager.gameDirector.incrementalManager;
-        //startHealth += bonushealth;
-        _health = startHealth;
+        if (brickType == BrickType.Indestructible)
+        {
+            if (healthTMP != null)
+            {
+                healthTMP.gameObject.SetActive(false);
+            }
+            return;
+        }
+        _startHealth = Mathf.RoundToInt(Random.Range(starthealthRange.x, starthealthRange.y));
+        var bonushealth = levelManager.currentLevelNo / 5;
+        _startHealth+= bonushealth;
+      
+        _health = _startHealth;
         healthTMP.text = _health.ToString();
-        //spriteR.color = new Color(1, 1-_health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1);
+    
+        if (levelManager.currentLevelNo > 20 && levelManager.currentLevelNo < 31)
+        {
+            _startHealth += 1;
+        }
+        else if (levelManager.currentLevelNo > 30)
+
+        {
+            _startHealth += 2;
+        }
     }
     public void GetHit()
     {
         var totalDamage=1+ _incrementalManager.GetDamageUpgradeCount();
         _health-=totalDamage;
+        if (brickType == BrickType.Indestructible)
+        {
+            return;
+        }
         PlayVVisualFX();
+        if (brickType == BrickType.Tough)
+        {
+            _level.ToughBrickHit(transform.position);
+        }
         if (_health <=0)
         {
             DEstroyBrick();
@@ -58,10 +77,9 @@ public class Brick : MonoBehaviour
     private void PlayVVisualFX()
     {
         spriteR.transform.DOKill(true);
-        // spriteR.transform.localScale = .2f*Vector3.one; //bunlar tuglalarin hizli carpmasini scelini degismesini onluyor ama ise yaramiyor
-        // spriteR.transform.localScale = Vector3.zero;
+        
         spriteR.transform.DOScale(1f, .50f).SetLoops(2, LoopType.Yoyo);
-      //  spriteR.DOColor(new Color(1, 1 - _health * colorChangeSpeed, 1 - _health * colorChangeSpeed, 1), .1f);
+    
         spriteR.transform.DOPunchPosition(Vector3.one*.5f,.5f,10);
         healthTMP.DOKill(true);
         healthTMP.color= Color.white;
@@ -81,4 +99,10 @@ public class Brick : MonoBehaviour
         spriteR.DOKill();
     }
 
+}
+public enum  BrickType
+{
+    Basic,
+    Indestructible,
+    Tough,
 }

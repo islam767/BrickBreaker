@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public bool clickToMove;
     private Player _player;
     private void Start()
     {
@@ -9,17 +10,25 @@ public class PlayerInput : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(clickToMove)
         {
+         if(Input.GetMouseButtonDown(0))
+         {
             DragStarted();
-        }
-        if(Input.GetMouseButton(0))
-        {
-           Dragged();
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
+         }
+         if(Input.GetMouseButton(0))
+         {
+            Dragged();
+         }
+         if(Input.GetMouseButtonUp(0))
+         {
             DragStopped();
+         }
+
+        }
+        else
+        {
+            Dragged();
         }
     }
 

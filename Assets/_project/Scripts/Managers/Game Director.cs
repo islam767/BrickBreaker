@@ -60,14 +60,11 @@ public class GameDirector : MonoBehaviour
    public void RestartLevel()
     {
         coinManager.StopCoinSpawnC();
-        // bolum olsutur
-        // dusmanlari olustur
-        // oyuncuyu resetle
         levelManagers.RestartLevelManager();
-       // breakManagers.RestartBreakManager();
         player.RestartPlayer();
         uiManager.ShowInGameUI(levelManagers.currentLevelNo);
         coinManager.StartCoinSpawnerC();
+        audioManager.StartMusic(levelManagers.currentLevelNo);
     }
 
     public void Win()
@@ -79,7 +76,7 @@ public class GameDirector : MonoBehaviour
         coinManager.StopCoinSpawnC();
         coinManager.DEstroyActiveCoins();
         powerUpManager.DEstroyActivePowerUps();
-
+        audioManager.StopMusic();
     }
 
     public void Lose()

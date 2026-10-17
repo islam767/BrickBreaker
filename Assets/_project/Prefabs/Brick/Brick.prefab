@@ -319,11 +319,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea41569af0fd9644d90660f415c7af8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Brick
-  _level: {fileID: 0}
-  startHealth: 3
+  starthealthRange: {x: 2, y: 6}
   spriteR: {fileID: 2411349380637697410}
   colorChangeSpeed: 0.3
   healthTMP: {fileID: 94725147419441716}
+  brickType: 0
 --- !u!61 &539381832819565405
 BoxCollider2D:
   m_ObjectHideFlags: 0
