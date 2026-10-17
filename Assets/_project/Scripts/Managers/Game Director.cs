@@ -7,27 +7,31 @@ public class GameDirector : MonoBehaviour
     public FXMAnager fxManager;
     public CoinManager coinManager;
     public AudioManager audioManager;
-    // public BreakManagers breakManagers;
     public IncrementalManager incrementalManager;
     public Player player;
     public object lose;
     public UIManager uiManager;
     public PowerUpManager powerUpManager;
 
+    public bool adminMode;
 
     private void Update()
     {
-      if (Input.GetKeyDown(KeyCode.R))
-        {
+        if (adminMode)
+       {
+            
+        if (Input.GetKeyDown(KeyCode.R))
+         {
             RestartLevel();
-        }
-      if (Input.GetKeyDown(KeyCode.E))
-        {
+         }
+        if (Input.GetKeyDown(KeyCode.E))
+          {
             loadNextLevel();
-        }
-      if (Input.GetKeyDown(KeyCode.Q))
-        {
-            LoadPreviousLevel();
+         }
+         if (Input.GetKeyDown(KeyCode.Q))
+          {
+             LoadPreviousLevel();
+          }
         }
     }
     private void Start()

@@ -1,8 +1,6 @@
 
 using DG.Tweening;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
-using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 public class LevelManagers : MonoBehaviour

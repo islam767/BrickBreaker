@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class IncrementalManager : MonoBehaviour
 {
+    public GameDirector gameDirector;
     public CoinManager coinManager;
     private int _damageUpgradeCount;
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Y))
+        if(gameDirector.adminMode && Input.GetKeyDown(KeyCode.Y))
         {
             ResetDamageUpgrade();
             coinManager.ResetCoinCount();

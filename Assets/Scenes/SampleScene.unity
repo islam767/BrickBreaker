@@ -156,6 +156,7 @@ MonoBehaviour:
   player: {fileID: 667873293}
   uiManager: {fileID: 1884909120}
   powerUpManager: {fileID: 2075006586}
+  adminMode: 0
 --- !u!4 &1845472
 Transform:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5765936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -351,8 +352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -462}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -575}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &24403835
 MonoBehaviour:
@@ -532,8 +533,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -543,7 +544,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_characterHorizontalScale: 1
+  m_characterHorizontalScale: 1.33
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1249,7 +1250,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -642}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &287444190
 MonoBehaviour:
@@ -1320,7 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.98490566, g: 0.90116507, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1641,8 +1642,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 29
+  m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1652,7 +1653,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_characterHorizontalScale: 1
+  m_characterHorizontalScale: 1.6
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -2936,6 +2937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe043282037bef7408ae9215df6fa925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IncrementalManager
+  gameDirector: {fileID: 1845471}
   coinManager: {fileID: 1173836659}
 --- !u!4 &985392704
 Transform:
@@ -3294,8 +3296,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 27.4
+  m_fontSizeBase: 27.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3305,7 +3307,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_characterHorizontalScale: 1
+  m_characterHorizontalScale: 1.31
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3482,6 +3484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d732b88f44d35a47a30e72e13cc00bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinManager
+  gameDirector: {fileID: 1845471}
   fxmanager: {fileID: 1740257773}
   coinUI: {fileID: 774944221}
   coinCount: 0
@@ -3923,7 +3926,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -462}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368759930
 MonoBehaviour:
@@ -5268,14 +5271,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154de7b030255df489b14ccfea65164d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  impactAs: {fileID: 758965505}
-  exploadAS: {fileID: 97569493}
-  positveAS: {fileID: 1843010726}
-  fallAS: {fileID: 1617060014}
   audioSources:
   - {fileID: 1103235915}
   - {fileID: 664892611}
   - {fileID: 1026606646}
+  impactAs: {fileID: 758965505}
+  exploadAS: {fileID: 97569493}
+  positveAS: {fileID: 1843010726}
+  fallAS: {fileID: 1617060014}
 --- !u!1 &1728267953
 GameObject:
   m_ObjectHideFlags: 0

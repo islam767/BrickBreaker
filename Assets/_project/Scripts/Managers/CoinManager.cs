@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class CoinManager : MonoBehaviour
 {
+    public GameDirector gameDirector;
     public FXMAnager fxmanager;
     public CoinUI coinUI;
     public int coinCount;
@@ -18,7 +19,7 @@ public class CoinManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.M))
+        if(gameDirector.adminMode && Input.GetKeyDown(KeyCode.M))
         {
           for(int i = 0; i < 100; i++)
             {
